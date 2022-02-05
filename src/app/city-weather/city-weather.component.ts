@@ -12,6 +12,7 @@ export class CityWeatherComponent implements OnInit {
 
   constructor() { }
 
+
   ngOnInit(): void {
   }
 

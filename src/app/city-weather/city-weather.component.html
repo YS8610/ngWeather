@@ -1,6 +1,6 @@
 <div fxLayout="row" fxLayoutAlign="start center" >
   <div fxFlex="40" fxLayout ="column" fxLayoutAlign="center center">
-    <div> <img [src]="'http://openweathermap.org/img/wn/'+weatherinCity.weatherDetail.icon+'@2x.png'" alt=""></div>
+    <div > <img *ngIf="(weatherinCity.weatherDetail.icon).length>0" src="{{'http://openweathermap.org/img/wn/'+weatherinCity.weatherDetail.icon+'@2x.png'}}" [alt]="weatherinCity.weatherDetail.icon"></div>
     <div>{{weatherinCity.name}}</div>
 
   </div>

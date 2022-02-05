@@ -12,7 +12,8 @@
   </form>
   <hr>
 
-  <app-city-weather [weatherinCity] = "retrieveInfo"></app-city-weather>
+  <app-city-weather [weatherinCity] = "retrieveInfo" *ngIf="!hasError"></app-city-weather>
+  <h1 *ngIf="hasError">Error</h1>
 </div>
 <!-- {{a|json}} -->
 <!-- <div fxLayout="row" fxLayoutAlign="start center" >
