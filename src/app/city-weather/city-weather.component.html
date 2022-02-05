@@ -1,0 +1,32 @@
+<div fxLayout="row" fxLayoutAlign="start center" >
+  <div fxFlex="40" fxLayout ="column" fxLayoutAlign="center center">
+    <div> <img [src]="'http://openweathermap.org/img/wn/'+weatherinCity.weatherDetail.icon+'@2x.png'" alt=""></div>
+    <div>{{weatherinCity.name}}</div>
+
+  </div>
+  <div fxFlex="60" fxLayoutAlign="space-between center"  >
+    <table *ngIf="weatherinCity.weatherDetail.description">
+      <tr>
+        <td>Desc:</td>
+        <td>{{weatherinCity.weatherDetail.description}}</td>
+      </tr>
+      <tr>
+        <td>Temp:</td>
+        <td>{{weatherinCity.mainTemp.temp}} &#8451;</td>
+      </tr>
+      <tr>
+        <td>Feel Like:</td>
+        <td>{{weatherinCity.mainTemp.feels_like}} &#8451;</td>
+      </tr>
+      <tr>
+        <td>Min Temp:</td>
+        <td>{{weatherinCity.mainTemp.temp_min}} &#8451;</td>
+      </tr>
+      <tr>
+        <td>Max Temp:</td>
+        <td>{{weatherinCity.mainTemp.temp_max}} &#8451;</td>
+      </tr>
+    </table>
+
+  </div>
+</div>
