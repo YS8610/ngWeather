@@ -32,6 +32,9 @@
 
     </div>
   </div>
-  <h2 *ngIf="hasError">Error</h2>
+  <div fxLayout="column" *ngIf="hasError"><button (click)="onBack()">Back</button>
+    <h2 >Error</h2>
+  </div>
+
 
 </div>

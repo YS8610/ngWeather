@@ -1,7 +1,8 @@
 # NgWeather
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.4.
-Information is retrieved using openweather api. Weather Website is created using angular framework. Routing feature is added in this branch.
+Information is retrieved using openweather api. Weather Website is created using angular framework. Routing feature is added in this branch.  
+sample website = https://ys8610.github.io/ngWeather/
 
 ## Development server
 
