@@ -1,0 +1,18 @@
+<div class="container" fxFlex="400px" >
+  <form (ngSubmit)="addCity(cityform)" #cityform ="ngForm" >
+    <div fxLayout="row" fxLayoutAlign="space-between center" >
+      <div ><label for="apiKey">ApiKey: </label></div>
+      <div ><input type="text" name="apikey" maxlength="35" size="45" ngModel required></div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between center" >
+      <div  ><label for="city">City:</label></div>
+      <div  ><input type="text" name="city" ngModel required maxlength="45" size="45" ></div>
+    </div>
+    <button type="submit" [disabled]="!cityform.form.valid">Add</button>
+  </form>
+  <hr>
+  <div fxLayout="row" fxLayoutAlign="start center" *ngFor="let c of listofCity" style="border: solid;">
+    <!-- <div > <a [routerLink]="c.api+'/'+c.city">{{c.city}}</a> </div> -->
+    <div > <a [routerLink]="[c.api,c.city]">{{c.city}}</a> </div>
+  </div>
+</div>

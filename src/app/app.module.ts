@@ -7,17 +7,27 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import { AppComponent } from './app.component';
 import { WeatherService } from './weather.service';
 import { CityWeatherComponent } from './city-weather/city-weather.component';
+import { HomeComponent } from './home/home.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const appRoutes: Routes = [
+  {path:"", component: HomeComponent},
+  {path:":apikey/:city", component: CityWeatherComponent}
+]
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    CityWeatherComponent
+    CityWeatherComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [WeatherService],
   bootstrap: [AppComponent]

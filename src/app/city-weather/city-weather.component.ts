@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Weather } from '../weather.model';
+import { WeatherService } from '../weather.service';
 
 @Component({
   selector: 'app-city-weather',
@@ -8,13 +10,37 @@ import { Weather } from '../weather.model';
 })
 export class CityWeatherComponent implements OnInit {
 
-  @Input() weatherinCity = <Weather>{};
+  weatherinCity = <Weather>{};
+  hasError = false;
 
-  constructor() { }
+
+  constructor(
+    private weatherSvc:WeatherService,
+    private route: ActivatedRoute,
+    private router:Router
+    ) { }
 
 
   ngOnInit(): void {
+      let api = this.route.snapshot.params["apikey"];
+      let city = this.route.snapshot.params["city"];
+
+      this.weatherSvc.getWeather(city,api)
+        .subscribe( {
+          next : (resp) => {
+            this.hasError = false;
+            this.weatherinCity = <Weather>resp
+            // console.log(this.retrieveInfo)
+          },
+          error: (error) =>{
+            console.log(error);
+            // this.retrieveInfo = <Weather>{};
+            this.hasError = true;
+          }
+        } );
   }
 
-
+  onBack(){
+    this.router.navigate(["/"]);
+  }
 }
